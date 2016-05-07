@@ -1,15 +1,16 @@
 {
-  "name": "angular-seed",
-  "description": "A starter project for AngularJS",
+  "name": "AnGitHub",
+  "description": "Client for GitHub on AngularJS",
   "version": "0.0.0",
   "homepage": "https://github.com/angular/angular-seed",
   "license": "MIT",
   "private": true,
   "dependencies": {
-    "angular": "~1.4.0",
-    "angular-route": "~1.4.0",
-    "angular-loader": "~1.4.0",
-    "angular-mocks": "~1.4.0",
-    "Materialize": "materialize#^0.97.6"
+    "angular": "^1.4.0",
+    "angular-route": "^1.4.0",
+    "angular-loader": "^1.4.0",
+    "angular-mocks": "^1.4.0",
+    "Materialize": "materialize#^0.97.6",
+    "angular-resource": "^1.5.5"
   }
 }
