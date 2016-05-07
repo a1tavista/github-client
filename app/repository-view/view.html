@@ -3,6 +3,14 @@
         <h2>{{ repo.full_name }}: {{ currentBranch }}</h2>
         <p>{{ repo.description }}</p>
     </div>
+
+    <div class="row">
+        <div class="input-field col s12">
+            <input id="search" type="text" ng-model="search.commit.author.$">
+            <label for="search">Поиск коммитов по имени/e-mail автора или по дате создания</label>
+        </div>
+    </div>
+
     <div class="row grey lighten-5 z-depth-1">
         <div class="col l3 s12">
             <div>
@@ -34,10 +42,12 @@
         </div>
         <div class="col l9 s12">
             <ul class="collection" ng-show="commits">
-                <li class="collection-item avatar" ng-repeat="commit in commits">
+                <li class="collection-item avatar"
+                    ng-repeat="commit in commits | filter: search">
                     <img ng-src="{{ commit.author.avatar_url }}" alt="" class="circle">
                     <span class="title"><b>{{ commit.commit.message }}</b></span>
-                    <p>{{ commit.commit.author.name }} <{{ commit.commit.author.email }}> ({{commit.commit.author.date}})<br>
+                    <p>{{ commit.commit.author.name }} <{{ commit.commit.author.email }}>
+                        ({{commit.commit.author.date}})<br>
                         {{commit.sha}}
                     </p>
                 </li>
