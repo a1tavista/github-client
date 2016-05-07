@@ -1,0 +1,23 @@
+<div class="section">
+    <nav class="z-depth-0">
+        <div class="nav-wrapper">
+            <form ng-submit="doSearch()">
+                <div class="input-field white">
+                    <input id="search" type="search" ng-model="search" class="grey-text"
+                           placeholder="Поиск: owner/repo, owner/* или */repo" required>
+                    <label for="search"><i class="material-icons black-text">search</i></label>
+                </div>
+            </form>
+        </div>
+    </nav>
+    <ul class="collection" ng-show="repositories">
+        <a ng-repeat="repository in repositories" ng-href="#/view/{{repository.full_name}}" class="collection-item black-text">
+            <b>{{repository.full_name}}</b>: {{repository.description}}
+        </a>
+    </ul>
+    <div ng-show="search && !repositories">
+        <div class="progress">
+            <div class="indeterminate"></div>
+        </div>
+    </div>
+</div>
