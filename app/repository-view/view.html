@@ -1,0 +1,48 @@
+<div class="section">
+    <div class="row">
+        <h2>{{ repo.full_name }}: {{ currentBranch }}</h2>
+        <p>{{ repo.description }}</p>
+    </div>
+    <div class="row grey lighten-5 z-depth-1">
+        <div class="col l3 s12">
+            <div>
+                <h5>Branches</h5>
+                <ul class="collection" ng-show="branches">
+                    <a ng-repeat="branch in branches" ng-click="switchBranch(branch.name)"
+                       class="collection-item black-text"
+                       ng-class="{active: currentBranch == branch.name}">
+                        {{branch.name}}
+                    </a>
+                </ul>
+            </div>
+            <div>
+                <h5>Contributors</h5>
+                <ul class="collection" ng-show="branches">
+                    <a ng-repeat="contributor in contributors" class="collection-item black-text">
+                        {{contributor.login}} ({{contributor.contributions}})
+                    </a>
+                </ul>
+            </div>
+            <div ng-show="languages">
+                <h5>Languages</h5>
+                <ul class="collection">
+                    <a ng-repeat="(lang, count) in languages" class="collection-item black-text">
+                        <b>{{ lang }} ({{ count }}</b>
+                    </a>
+                </ul>
+            </div>
+        </div>
+        <div class="col l9 s12">
+            <ul class="collection" ng-show="commits">
+                <li class="collection-item avatar" ng-repeat="commit in commits">
+                    <img ng-src="{{ commit.author.avatar_url }}" alt="" class="circle">
+                    <span class="title"><b>{{ commit.commit.message }}</b></span>
+                    <p>{{ commit.commit.author.name }} <{{ commit.commit.author.email }}> ({{commit.commit.author.date}})<br>
+                        {{commit.sha}}
+                    </p>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</div>
